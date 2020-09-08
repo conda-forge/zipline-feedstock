@@ -1,7 +1,5 @@
 {% set name = "zipline" %}
 {% set version = "1.4.0" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "34db98635bd6503e00774e6ffbcc44f0f8201efbcf488bb39a37a1c832a48c4f" %}
 
 package:
   name: "{{ name|lower }}"
@@ -9,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  "{{ hash_type }}": "{{ hash_value }}"
+  "sha256": "34db98635bd6503e00774e6ffbcc44f0f8201efbcf488bb39a37a1c832a48c4f"
 
 build:
   number: 0
