@@ -1,19 +1,17 @@
 {% set name = "zipline" %}
-{% set version = "1.4.0" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "34db98635bd6503e00774e6ffbcc44f0f8201efbcf488bb39a37a1c832a48c4f" %}
+{% set version = "1.4.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  "{{ hash_type }}": "{{ hash_value }}"
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: fda2b8fd324c0f02cc0b5a00d4a0c42e256e9c8c0118a5cbf0fba69996076d10
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - zipline = zipline.__main__:main
 
@@ -32,12 +30,11 @@ requirements:
     - Logbook >=0.12.5
     - click >=4.0.0
     - six >=1.10.0
-    - contextlib2 >=0.4.0
     - python-interface >=1.5.3
     - multipledispatch >=0.6.0
     - toolz >=0.8.2
     - pandas >=0.18.1,<=0.22
-    - pandas-datareader >=0.2.1
+    - pandas-datareader >=0.2.1,<0.9.0
     - scipy >=0.17.1
     - patsy >=0.4.0
     - statsmodels >=0.6.1
@@ -69,7 +66,7 @@ about:
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: "A backtester for financial algorithms."
+  summary: A backtester for financial algorithms.
   description: |
     Zipline is a Pythonic algorithmic trading library. It is an event-driven
     system for backtesting. Zipline is currently used in production as the backtesting and live-trading
